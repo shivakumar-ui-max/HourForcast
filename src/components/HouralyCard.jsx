@@ -31,14 +31,16 @@ const HouralyCard = () => {
    return (
       <>
          <div className="mt-10">
-            <div className="flex gap-2 items-center">
-               <h2 className="text-lg">{data.cod === "200" && "HOURLY"} </h2>
-               <div className="flex items-center">
-                  <RightArrow className="Left-Arrow" size={20} />
-                  <RightArrow className="Right-Arrow" size={20} />
+            {data.cod === "200" && (
+               <div className="flex gap-2 items-center">
+                  <h2 className="text-lg">HOURALY </h2>
+                  <div className="flex items-center">
+                     <RightArrow className="Left-Arrow" size={20} />
+                     <RightArrow className="Right-Arrow" size={20} />
+                  </div>
                </div>
-            </div>
-            <div className="mini-cards flex gap-5 mt-5 pb-2  overflow-x-scroll rounded-md">
+            )}
+            <div className="mini-cards flex gap-5 mt-5 pb-2 transition-all ease-linear overflow-x-scroll rounded-md">
                {dailyData.item &&
                   dailyData.item.map((houralyItem, index) => {
                      const time = houralyItem?.dt ?? "02:30:AM";

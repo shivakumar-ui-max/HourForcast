@@ -44,12 +44,13 @@
    }
 
    .card {
-      /* background: rgba(245, 245, 245, 0.7); */
-      background: linear-gradient(
-         275.41deg,
-         rgb(98, 81, 184) -80%,
-         rgba(255, 255, 255, 0.5) 20.5%
-      );
+      background: rgba(245, 245, 245, 0.7);
+      /* background: linear-gradient(
+         325.41deg,
+         rgba(98, 81, 184, 0.9) -400.5%,
+         rgba(255, 255, 255, 0.7) 80%,
+         rgba(98, 81, 184, 0.9) 180.5%
+      ); */
    }
 
    .Right-Arrow {

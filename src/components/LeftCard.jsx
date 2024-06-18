@@ -47,17 +47,19 @@ const LeftCard = () => {
                const Icon = item.icon;
                return (
                   <div
-                     className="card max-w-[155px] w-full lg:max-w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[4%] py-[7%]"
+                     className="card max-w-[155px] w-full lg:max-w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[1.125rem] py-[1.5rem]"
                      key={index}
                   >
-                     <div className="icon flex items-center gap-2">
+                     <div className="icon flex items-center gap-2 lg:mt-4">
                         <Icon className="w-[20px] h-[20px] shrink-0" />
                         <span className="text-base">{item.name}</span>
                      </div>
-                     <h2 className="text-xl my-4">
+                     <h2 className="text-xl my-4 lg:mt-5">
                         {item.value} {item.unit}
                      </h2>
-                     <p className="text-xs">last in 24 hours {item.value}</p>
+                     <p className="text-xs lg:mt-5">
+                        last in 24 hours {item.value}
+                     </p>
                   </div>
                );
             })}
