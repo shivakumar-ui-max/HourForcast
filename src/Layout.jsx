@@ -13,7 +13,7 @@ const Layout = () => {
          {/* // left side */}
          <div className="left-side shrink-0 lg:max-w-[500px] px-4 lg:border-e-2 lg:border-black">
             <div className="header-logo ">
-               <h1>HOURCAST</h1>
+               <h1 className="text-xl font-medium">HOURCAST</h1>
                <CloudIcon size={20} />
             </div>
             <SearchBar />

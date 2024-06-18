@@ -32,8 +32,9 @@ const pollutionSlice = createSlice({
          state.isLoading = false;
          state.data = action.payload;
       });
-      builder.addCase(getPollution.rejected, (state) => {
+      builder.addCase(getPollution.rejected, (state, action) => {
          state.isLoading = false;
+         state.Error = action.payload;
       });
    },
 });

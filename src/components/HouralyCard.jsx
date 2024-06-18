@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { IoSunny as SunIcon } from "react-icons/io5"; // sun
 import { useSelector, useDispatch } from "react-redux";
 import { findDate, findTime, formatDate } from "../utils/getDate";
 import { setDailyForecasts } from "../store/HourlySlice";
 import { getHourlyIcons } from "../utils/getWeatherIcons";
+import { TbArrowBadgeRightFilled as RightArrow } from "react-icons/tb";
 
 const HouralyCard = () => {
-   const { data } = useSelector((state) => state.houralyCast);
+   const { data, isLoading } = useSelector((state) => state.houralyCast);
    const { dailyData } = useSelector((state) => state.daily);
    const dispatch = useDispatch();
 
@@ -31,15 +31,24 @@ const HouralyCard = () => {
    return (
       <>
          <div className="mt-10">
-            <h2 className="text-lg">HOURLY</h2>
+            <div className="flex gap-2 items-center">
+               <h2 className="text-lg">{data.cod === "200" && "HOURLY"} </h2>
+               <div className="flex items-center">
+                  <RightArrow className="Left-Arrow" size={20} />
+                  <RightArrow className="Right-Arrow" size={20} />
+               </div>
+            </div>
             <div className="mini-cards flex gap-5 mt-5 pb-2  overflow-x-scroll rounded-md">
                {dailyData.item &&
                   dailyData.item.map((houralyItem, index) => {
-                     const time = houralyItem?.dt;
+                     const time = houralyItem?.dt ?? "02:30:AM";
                      const temp = houralyItem?.main?.temp ?? "45";
                      const Icon = houralyItem?.weather[0]?.main ?? "rain";
+
                      const Icons = getHourlyIcons(Icon);
-                     return (
+                     return isLoading ? (
+                        "Loading..."
+                     ) : (
                         <div
                            className="w-[100px] px-2 card flex-shrink-0 shadow-md border rounded-md text-center border-solid border-black transition-all ease-linear"
                            key={index}

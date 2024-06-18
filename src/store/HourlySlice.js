@@ -36,8 +36,9 @@ const HouralyCastSlice = createSlice({
          state.isLoading = false;
          state.data = action.payload;
       });
-      builder.addCase(getHouralyCast.rejected, (state) => {
+      builder.addCase(getHouralyCast.rejected, (state, action) => {
          state.isLoading = false;
+         state.Error = action.payload;
       });
    },
 });

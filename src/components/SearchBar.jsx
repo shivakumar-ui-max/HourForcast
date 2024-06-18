@@ -9,12 +9,12 @@ import { getHouralyCast } from "../store/HourlySlice";
 const SearchBar = () => {
    const [name, setName] = useState("");
    const [active, setActive] = useState(false);
-   const { data } = useSelector((state) => state.cityName);
+   const { data, isLoading } = useSelector((state) => state.cityName);
    const dispatch = useDispatch();
 
    const handleChangeSearch = (e) => {
-      setName(e.target.value);
       setActive(true);
+      setName(e.target.value);
    };
 
    const debouncedSearch = Debounce(name, 500);
@@ -25,11 +25,11 @@ const SearchBar = () => {
       }
    }, [debouncedSearch, dispatch]);
 
-   useEffect(() => {
-      dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
-      dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
-      dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
-   }, [name, dispatch]);
+   // useEffect(() => {
+   //    dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
+   //    dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
+   //    dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
+   // }, [name, dispatch]);
 
    const handleClick = (item) => () => {
       const { name, lat, lon } = item;
@@ -55,15 +55,19 @@ const SearchBar = () => {
          </div>
          {active && data.length > 0 && (
             <ul className="cities card rounded-b-md px-3 absolute top-13 right-0 w-full max-h-28 overflow-y-auto">
-               {data.map((item, index) => (
-                  <li
-                     key={index}
-                     className="py-1 text-base text-[#333333] capitalize cursor-pointer"
-                     onClick={handleClick(item)}
-                  >
-                     {item.name} {item.state} {item.country}
-                  </li>
-               ))}
+               {data.map((item, index) =>
+                  isLoading ? (
+                     "loading..."
+                  ) : (
+                     <li
+                        key={index}
+                        className="py-1 text-base text-[#333333] capitalize cursor-pointer"
+                        onClick={handleClick(item)}
+                     >
+                        {item.name} {item.state} {item.country}
+                     </li>
+                  )
+               )}
             </ul>
          )}
       </div>

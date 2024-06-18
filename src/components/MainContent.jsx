@@ -10,25 +10,26 @@ const MainContent = () => {
    const name = data?.name ?? "hyderabad";
 
    return (
-      <main>
+      <section>
          <img
             src={getHeaderIcons(weatherMain)}
             alt="main-img"
             className="w-[100px] h-[100px] mt-4 mx-auto"
          />
+         <main>
+            <h1 className="main-font mt-3 text-center text-5xl tracking-widest">
+               {weatherMain}
+            </h1>
 
-         <h1 className="main-font mt-3 text-center text-5xl tracking-widest">
-            {weatherMain}
-         </h1>
-
-         <div className="mt-8 flex gap-2 items-center">
-            <div className="flex gap-2 justify-between items-center">
-               <h2 className="text-lg">Today</h2>
-               <RightArrow size={20} />
+            <div className="mt-8 flex gap-2 items-center">
+               <div className="flex gap-2 justify-between items-center">
+                  <h2 className="text-lg">Today</h2>
+                  <RightArrow size={20} />
+               </div>
+               <h2 className="text-lg capitalize">{name}</h2>
             </div>
-            <h2 className="text-lg capitalize">{name}</h2>
-         </div>
-      </main>
+         </main>
+      </section>
    );
 };
 

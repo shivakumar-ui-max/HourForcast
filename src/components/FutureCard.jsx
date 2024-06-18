@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { MdCalendarMonth as Calendar } from "react-icons/md"; // calendar
+// import { MdCalendarMonth as Calendar } from "react-icons/md"; // calendar
+import { LuCalendarDays as Calendar } from "react-icons/lu";
 import { setDailyData } from "../store/dailySlice";
 import { cardIcons, getHeaderIcons } from "../utils/getWeatherIcons";
 import { getDays, monthlyDay } from "../utils/getDate";
+import { TbArrowBadgeRightFilled as RightArrow } from "react-icons/tb";
 
 const FutureCard = () => {
-   const { dailyForecasts } = useSelector((state) => state.houralyCast);
+   const { dailyForecasts, isLoading } = useSelector(
+      (state) => state.houralyCast
+   );
    const dispatch = useDispatch();
 
    const addDailyData = (item) => {
@@ -27,16 +31,18 @@ const FutureCard = () => {
                const humidity = item[0]?.main?.humidity ?? "58";
                const temp = item[0]?.main?.temp ?? "45";
                const weatherMain = item[0]?.weather[0]?.main ?? "rain";
-               const day = item[0].dt;
+               const day = item[0].dt ?? "6/15";
 
                const Icon = {
                   temperature: cardIcons("temperature"),
                   visibility: cardIcons("visibility"),
                   humidity: cardIcons("humidity"),
                };
-               return (
+               return isLoading ? (
+                  "loading.."
+               ) : (
                   <div
-                     className=" max-w-[398px] w-full lg:max-w-[290px] p-5 card shadow-md rounded-md transition-all shrink-0 ease-linear snap-center "
+                     className="max-w-[398px] w-full lg:max-w-[290px] p-5 card shadow-md rounded-md transition-all shrink-0 ease-linear snap-center"
                      key={index}
                      onClick={() => addDailyData(item)}
                   >
@@ -80,6 +86,10 @@ const FutureCard = () => {
                            <span>{visibility} m</span>
                         </div>
                      </div>
+                     <footer className="mt-3 flex  justify-end items-center">
+                        <RightArrow className="Left-Arrow" size={20} />
+                        <RightArrow className="Right-Arrow" size={20} />
+                     </footer>
                   </div>
                );
             })}
