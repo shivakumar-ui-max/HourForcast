@@ -47,7 +47,7 @@ const LeftCard = () => {
                const Icon = item.icon;
                return (
                   <div
-                     className="card max-w-[155px] w-full lg:w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[4%] py-[7%]"
+                     className="card max-w-[155px] w-full lg:max-w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[4%] py-[7%]"
                      key={index}
                   >
                      <div className="icon flex items-center gap-2">

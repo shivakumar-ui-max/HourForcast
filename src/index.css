@@ -46,7 +46,12 @@
    }
 
    .card {
-      background: rgba(245, 245, 245, 0.7);
+      /* background: rgba(245, 245, 245, 0.7); */
+      background: linear-gradient(
+         275.41deg,
+         hsl(218, 92%, 81%) -27.33%,
+         rgba(255, 255, 255, 0.5) 20.85%
+      );
    }
 
    .cards {
@@ -54,7 +59,7 @@
    }
 
    .future-cards {
-      @apply mt-12 flex flex-col gap-7;
+      @apply mt-12 gap-7 flex flex-row  overflow-x-scroll snap-x snap-mandatory;
    }
    .pop-up {
       @apply w-10 h-10 backdrop-blur-md;

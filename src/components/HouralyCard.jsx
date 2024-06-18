@@ -32,7 +32,7 @@ const HouralyCard = () => {
       <>
          <div className="mt-10">
             <h2 className="text-lg">HOURLY</h2>
-            <div className="mini-cards flex gap-5 mt-5 pb-2  overflow-x-scroll">
+            <div className="mini-cards flex gap-5 mt-5 pb-2  overflow-x-scroll rounded-md">
                {dailyData.item &&
                   dailyData.item.map((houralyItem, index) => {
                      const time = houralyItem?.dt;
@@ -41,7 +41,7 @@ const HouralyCard = () => {
                      const Icons = getHourlyIcons(Icon);
                      return (
                         <div
-                           className="w-[100px] px-2 card flex-shrink-0 shadow-md border text-center border-solid border-black transition-all ease-linear"
+                           className="w-[100px] px-2 card flex-shrink-0 shadow-md border rounded-md text-center border-solid border-black transition-all ease-linear"
                            key={index}
                         >
                            <p className="text-base font-medium  my-[10px]">

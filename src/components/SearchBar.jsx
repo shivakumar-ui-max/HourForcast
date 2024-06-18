@@ -7,7 +7,7 @@ import { getPollution } from "../store/polutionSlice";
 import { getHouralyCast } from "../store/HourlySlice";
 
 const SearchBar = () => {
-   const [name, setName] = useState("Hyderabad");
+   const [name, setName] = useState("");
    const [active, setActive] = useState(false);
    const { data } = useSelector((state) => state.cityName);
    const dispatch = useDispatch();
@@ -26,11 +26,9 @@ const SearchBar = () => {
    }, [debouncedSearch, dispatch]);
 
    useEffect(() => {
-      if (name === "Hyderabad") {
-         dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
-         dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
-         dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
-      }
+      dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
+      dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
+      dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
    }, [name, dispatch]);
 
    const handleClick = (item) => () => {
@@ -52,7 +50,7 @@ const SearchBar = () => {
                name="search"
                value={name}
                onChange={handleChangeSearch}
-               className="searchBar text-base w-full capitalize bg-transparent p-3 placeholder:text-[#333333] focus:outline-none"
+               className="searchBar text-base w-full capitalize bg-transparent p-3 placeholder-[#333333] focus:outline-none"
             />
          </div>
          {active && data.length > 0 && (

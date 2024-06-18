@@ -9,7 +9,7 @@ import { IoIosCloudOutline as CloudIcon } from "react-icons/io"; // cloud
 
 const Layout = () => {
    return (
-      <div className="container lg:flex flex-1  py-[3vh]">
+      <div className="w-full lg:flex flex-1  py-[3vh] overflow-hidden">
          {/* // left side */}
          <div className="left-side shrink-0 lg:max-w-[500px] px-4 lg:border-e-2 lg:border-black">
             <div className="header-logo ">
@@ -24,14 +24,14 @@ const Layout = () => {
          </div>
 
          {/* //Right side */}
-         <div className="right-side lg:mx-4 lg:w-full">
-            <div className="cards mt-3">
+         <div className="right-side lg:flex-1  overflow-hidden">
+            <div className="cards mt-3 px-4">
                <RightCard />
             </div>
             <div className="px-4">
                <HouralyCard />
             </div>
-            <div className="future-cards flex lg:gap-[15px] flex-row shrink-0 overflow-x-scroll snap-x snap-mandatory  pb-3 mx-4">
+            <div className="future-cards p-4">
                <FutureCard />
             </div>
          </div>

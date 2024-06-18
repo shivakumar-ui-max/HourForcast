@@ -9,6 +9,7 @@ const initialState = {
 export const getCityName = createAsyncThunk(
    "cityName/get",
    async (cityName) => {
+      cityName = cityName ? cityName : "Hyderabad";
       const response = await fetch(
          `${import.meta.env.VITE_CITY_API}?q=${cityName}&limit=5&appid=${
             import.meta.env.VITE_API_KEY

@@ -42,13 +42,13 @@ const RightCard = () => {
    }, [coordinate, pollution]);
 
    return (
-      <div className="flex flex-wrap flex-1 justify-center gap-4">
+      <div className="flex flex-wrap flex-1 justify-center lg:justify-start gap-4">
          {weather.length > 0 &&
             weather.map((item, index) => {
                const Icon = item.icon;
                return (
                   <div
-                     className="card max-w-[155px] w-full lg:w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[4%] py-[7%]"
+                     className="card max-w-[155px] w-full lg:max-w-[205px] lg:h-[205px] lg:shrink-0 rounded-md shadow-md px-[4%] py-[7%] lg:p-0"
                      key={index}
                   >
                      <div className="icon flex items-center gap-2">

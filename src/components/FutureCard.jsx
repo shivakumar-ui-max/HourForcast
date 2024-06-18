@@ -20,7 +20,7 @@ const FutureCard = () => {
    }, [dailyForecasts, addDailyData]);
 
    return (
-      <>
+      <div className="overflow-x-auto flex gap-4 rounded-md pb-2">
          {dailyForecasts &&
             dailyForecasts.map((item, index) => {
                const visibility = item[0]?.visibility ?? "10000";
@@ -36,7 +36,7 @@ const FutureCard = () => {
                };
                return (
                   <div
-                     className="max-w-[398px] w-full lg:max-w-[290px] p-5 card shadow-md rounded-md transition-all ease-linear snap-center shrink-0"
+                     className=" max-w-[398px] w-full lg:max-w-[290px] p-5 card shadow-md rounded-md transition-all shrink-0 ease-linear snap-center "
                      key={index}
                      onClick={() => addDailyData(item)}
                   >
@@ -83,7 +83,7 @@ const FutureCard = () => {
                   </div>
                );
             })}
-      </>
+      </div>
    );
 };
 
