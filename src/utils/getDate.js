@@ -37,9 +37,14 @@ export const findTime = (timestamp) => {
 
 export const getDays = (timestamp) => {
    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-   let date = new Date(timestamp * 1000);
+   const today = new Date();
+   const targetDate = new Date(timestamp * 1000);
 
-   return days[date.getDay()];
+   if (targetDate.toDateString() === today.toDateString()) {
+      return "Today";
+   }
+
+   return days[targetDate.getDay()];
 };
 
 export const monthlyDay = (timestamp) => {

@@ -25,11 +25,11 @@ const SearchBar = () => {
       }
    }, [debouncedSearch, dispatch]);
 
-   // useEffect(() => {
-   //    dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
-   //    dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
-   //    dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
-   // }, [name, dispatch]);
+   useEffect(() => {
+      dispatch(getCoordinate({ lat: 17.385044, lon: 78.486671 }));
+      dispatch(getPollution({ lat: 17.385044, lon: 78.486671 }));
+      dispatch(getHouralyCast({ lat: 17.385044, lon: 78.486671 }));
+   }, [name, dispatch]);
 
    const handleClick = (item) => () => {
       const { name, lat, lon } = item;

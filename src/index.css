@@ -64,7 +64,7 @@
    }
 
    .future-cards {
-      @apply mt-12 gap-7 flex flex-row  overflow-x-scroll snap-x snap-mandatory;
+      @apply mt-12 gap-7 flex flex-col  overflow-x-scroll snap-x snap-mandatory;
    }
    .pop-up {
       @apply w-10 h-10 backdrop-blur-md;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { findDate, findTime, formatDate } from "../utils/getDate";
 import { setDailyForecasts } from "../store/HourlySlice";
@@ -8,6 +8,7 @@ import { TbArrowBadgeRightFilled as RightArrow } from "react-icons/tb";
 const HouralyCard = () => {
    const { data, isLoading } = useSelector((state) => state.houralyCast);
    const { dailyData } = useSelector((state) => state.daily);
+   const [activeIndex, setActiveIndex] = useState(-1);
    const dispatch = useDispatch();
 
    useEffect(() => {
@@ -28,6 +29,12 @@ const HouralyCard = () => {
          dispatch(setDailyForecasts(forecasts));
       }
    }, [data]);
+
+   const addHourlyData = (item, index) => {
+      console.log(item);
+      setActiveIndex(index);
+   };
+
    return (
       <>
          <div className="mt-10">
@@ -52,8 +59,13 @@ const HouralyCard = () => {
                         "Loading..."
                      ) : (
                         <div
-                           className="w-[100px] px-2 card flex-shrink-0 shadow-md border rounded-md text-center border-solid border-black transition-all ease-linear"
+                           className={
+                              activeIndex === index
+                                 ? "w-[100px] px-2 card flex-shrink-0 shadow-md rounded-md border-1 border border-solid border-black text-center"
+                                 : "w-[100px] px-2 card flex-shrink-0 shadow-md rounded-md text-center"
+                           }
                            key={index}
+                           onClick={() => addHourlyData(houralyItem, index)}
                         >
                            <p className="text-base font-medium  my-[10px]">
                               {findTime(time)}
