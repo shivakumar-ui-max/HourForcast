@@ -11,7 +11,7 @@ const Layout = () => {
    return (
       <div className="w-full lg:flex flex-1  py-[3vh] overflow-hidden">
          {/* // left side */}
-         <div className="left-side shrink-0 lg:max-w-[500px] px-4 lg:border-e-2 lg:border-black">
+         <div className="left-side shrink-0 lg:max-w-[500px] px-4 lg:border-e-2 lg:border-[ background: rgba(245, 245, 245, 0.2);]">
             <div className="header-logo ">
                <h1 className="text-xl font-medium">HOURCAST</h1>
                <CloudIcon size={20} />
@@ -22,7 +22,6 @@ const Layout = () => {
                <LeftCard />
             </div>
          </div>
-
          {/* //Right side */}
          <div className="right-side lg:flex-1  overflow-hidden">
             <div className="cards mt-3 px-4">
