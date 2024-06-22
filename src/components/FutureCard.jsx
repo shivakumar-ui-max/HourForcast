@@ -29,7 +29,7 @@ const FutureCard = () => {
          {dailyForecasts.length > 0 && (
             <h2 className="text-lg">Next Forcast</h2>
          )}
-         <div className="overflow-x-auto flex  gap-4 rounded-md pb-2">
+         <div className="overflow-x-auto flex  gap-4 rounded-md p-2">
             {dailyForecasts &&
                dailyForecasts.map((item, index) => {
                   const visibility = item[0]?.visibility ?? "10000";
